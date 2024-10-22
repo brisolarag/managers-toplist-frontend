@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+#main {
+    background-image: url('../public/fxyE.gif');
+    background-size: cover;
+    background-position: center;
+}
+
+.full-view {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,37 @@
+<div id="home-page" style="position: relative;">
+
+    <button style="position: absolute; top: 10px; right: 10px; border: none; background-color: inherit; color: white; cursor: pointer;" (click)="openDialogAddManager()"><mat-icon>add_circle</mat-icon></button>
+
+
+    <section style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 50px; color: white; font-weight: bolder;">
+        <div class="labels">
+            <h1 style="text-align: center; margin: 0;">MANAGERS TOPLIST</h1>
+            <p  style="text-align: center; margin: 0;">Personal custom tier list of the Dell managers' teams.</p>
+        </div>
+        <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)" style="overflow-y: auto;">
+            @for (manager of managers; track manager.rank) {
+                @if (manager.rank === 1) {
+                    <div class="example-box" cdkDrag style="color: #bb8926;">
+                        <span>{{$index + 1}}º</span> 
+                        {{manager.managerName}} 
+                        <button class="button-view-manager" (click)="openDialog(manager)" [matTooltip]=manager.description><mat-icon style="color: #bb8926;">visibility</mat-icon></button></div>
+                } @else if (manager.rank === 2) {
+                    <div class="example-box" cdkDrag style="color: #758694;">
+                        <span>{{$index + 1}}º</span> 
+                        {{manager.managerName}} 
+                        <button class="button-view-manager" (click)="openDialog(manager)" [matTooltip]=manager.description><mat-icon style="color: #758694;">visibility</mat-icon></button></div>
+                } @else if (manager.rank === 3) {
+                    <div class="example-box" cdkDrag style="color: #825B32;">
+                        <span>{{$index + 1}}º</span> 
+                        {{manager.managerName}} 
+                        <button class="button-view-manager" (click)="openDialog(manager)" [matTooltip]=manager.description><mat-icon style="color: #825B32;">visibility</mat-icon></button></div>
+                } @else {
+                    <div class="example-box" cdkDrag>
+                        <span>{{$index + 1}}º</span> 
+                        {{manager.managerName}} 
+                        <button class="button-view-manager" (click)="openDialog(manager)" [matTooltip]=manager.description><mat-icon>visibility</mat-icon></button></div>
+                }
+            }
+          </div>
+    </section>
+</div>

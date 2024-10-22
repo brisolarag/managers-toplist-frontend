@@ -1,0 +1,13 @@
+.mat-mdc-dialog-title::before {
+    display: none;
+}
+
+.button-edit-manager-info {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.button-edit-manager-info:hover {
+    color: blue;
+}

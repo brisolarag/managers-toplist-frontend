@@ -1,0 +1,31 @@
+<h2 mat-dialog-title style="display: flex; flex-direction: row; width: 100%; justify-content: space-between; padding-top: 30px;">Manager - {{manager?.managerName}} <button class="button-edit-manager-info" (click)="toggleEditing()"><mat-icon>edit</mat-icon></button></h2>
+<mat-dialog-content class="mat-typography" style="width: 550px; height: 600px; max-height: 600px;">
+  <h3>{{manager?.teamName}}</h3>
+
+  <mat-chip-set aria-label="Fish selection" style="margin-bottom: 20px;">
+    @for (stack of manager?.stacks; track $index) {
+      <mat-chip>{{stack}}</mat-chip>
+    }
+  </mat-chip-set>
+
+  <h3>Description</h3>
+
+  @if (isEditing) {
+    <mat-form-field class="mat-typography" style="width: 100%; font-size: 1.5 rem; font-family: Roboto, sans-serif;" appearance="outline">
+        <textarea matInput [(ngModel)]="newDescription"></textarea>
+        <mat-label>Description</mat-label>
+    </mat-form-field>
+  } @else {
+    <p>{{manager?.description}}</p>
+  }
+
+
+  
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+  @if (isEditing) {
+    <button mat-button mat-dialog-close (click)="save()">Save</button>
+  }
+</mat-dialog-actions>
+
