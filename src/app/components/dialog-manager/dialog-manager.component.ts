@@ -9,11 +9,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ApiService } from '../../services/api.service';
 import { FormsModule } from '@angular/forms';
+import { PipeModule } from '../../modules/pipe-line/pipe-line.module';
 
 @Component({
   selector: 'app-dialog-manager',
   standalone: true,
-  imports: [MatDialogModule, MatButtonModule, MatChipsModule, MatIconModule, MatFormFieldModule, MatInputModule, FormsModule],
+  imports: [MatDialogModule, MatButtonModule, MatChipsModule, MatIconModule, MatFormFieldModule, MatInputModule, FormsModule, PipeModule],
   templateUrl: './dialog-manager.component.html',
   styleUrl: './dialog-manager.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -10,27 +10,10 @@
         </div>
         <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)" style="overflow-y: auto;">
             @for (manager of managers; track manager.rank) {
-                @if (manager.rank === 1) {
-                    <div class="example-box" cdkDrag style="color: #bb8926;">
-                        <span>{{$index + 1}}º</span> 
-                        {{manager.managerName}} 
-                        <button class="button-view-manager" (click)="openDialog(manager)" [matTooltip]=manager.description><mat-icon style="color: #bb8926;">visibility</mat-icon></button></div>
-                } @else if (manager.rank === 2) {
-                    <div class="example-box" cdkDrag style="color: #758694;">
-                        <span>{{$index + 1}}º</span> 
-                        {{manager.managerName}} 
-                        <button class="button-view-manager" (click)="openDialog(manager)" [matTooltip]=manager.description><mat-icon style="color: #758694;">visibility</mat-icon></button></div>
-                } @else if (manager.rank === 3) {
-                    <div class="example-box" cdkDrag style="color: #825B32;">
-                        <span>{{$index + 1}}º</span> 
-                        {{manager.managerName}} 
-                        <button class="button-view-manager" (click)="openDialog(manager)" [matTooltip]=manager.description><mat-icon style="color: #825B32;">visibility</mat-icon></button></div>
-                } @else {
-                    <div class="example-box" cdkDrag>
-                        <span>{{$index + 1}}º</span> 
-                        {{manager.managerName}} 
-                        <button class="button-view-manager" (click)="openDialog(manager)" [matTooltip]=manager.description><mat-icon>visibility</mat-icon></button></div>
-                }
+                <div class="example-box" cdkDrag [style]="{color: getRankColor(manager.rank)}">
+                    <span>{{$index + 1}}º</span> 
+                    {{manager.managerName + ' | ' + manager.roleName}} 
+                    <button class="button-view-manager" (click)="openDialog(manager)" [matTooltip]="manager.description"><mat-icon>visibility</mat-icon></button></div>
             }
           </div>
     </section>

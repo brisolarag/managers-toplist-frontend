@@ -44,6 +44,10 @@ export class HomeComponent {
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.managers, event.previousIndex, event.currentIndex);
 
+    this.managers.forEach((manager, index) => {
+      manager.rank = index + 1;  // Atualiza o rank de acordo com a nova posição
+    });
+
     this.updatePositions();
   }
 
@@ -76,5 +80,17 @@ export class HomeComponent {
     dialogAddMan.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  getRankColor(rank: number): string {
+    if (rank === 1) {
+      return '#bb8926'; 
+    } else if (rank === 2) {
+      return '#758694'; 
+    } else if (rank === 3) {
+      return '#825B32';
+    } else {
+      return 'black';
+    }
   }
 }
